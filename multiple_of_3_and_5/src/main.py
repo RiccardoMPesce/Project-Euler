@@ -1,6 +1,5 @@
 import pytest
 import sys
-import pytest
 
 from multiple_of_3_and_5 import multiple_of_3_and_5
 
