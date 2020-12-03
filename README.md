@@ -11,8 +11,3 @@ Click on the respective username to see the solutions delivered by each one of u
 
 ### Planning for the future
 For now, this repository will only include Project Euler's problems.
-
-## Collaborators 
-[Riccardo (me)](https://github.com/RiccardoMPesce/Project-Euler/tree/main/Riccardo)
-
-[Ben](https://github.com/RiccardoMPesce/Project-Euler/tree/main/Ben)
