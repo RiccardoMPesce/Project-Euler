@@ -1,7 +1,7 @@
 import sys
 import pytest
 
-from fibonacci_calculator import fibonacci_calculator
+from . import fibonacci_calculator
 
 def main():
     if len(sys.argv) == 2:
