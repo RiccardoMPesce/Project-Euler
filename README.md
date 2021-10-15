@@ -9,4 +9,6 @@ Project Euler gives us a chance to prove our problem-solving skills.
 
 [2. Even Fibonacci numbers](problems/fibonacci_calculator.py)
 
-[3. Largest prime factor](largest_prime_factor.py)
+[3. Largest prime factor](problems/largest_prime_factor.py)
+
+[3. Largest palindrome product](problems/largest_palindrome_product.py)
