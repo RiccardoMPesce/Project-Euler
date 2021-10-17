@@ -11,4 +11,6 @@ Project Euler gives us a chance to prove our problem-solving skills.
 
 [3. Largest prime factor](problems/largest_prime_factor.py)
 
-[3. Largest palindrome product](problems/largest_palindrome_product.py)
+[4. Largest palindrome product](problems/largest_palindrome_product.py)
+
+[4. Smallest multiple](problems/smallest_multiple.py)
