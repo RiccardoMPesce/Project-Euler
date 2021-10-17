@@ -13,4 +13,4 @@ Project Euler gives us a chance to prove our problem-solving skills.
 
 [4. Largest palindrome product](problems/largest_palindrome_product.py)
 
-[4. Smallest multiple](problems/smallest_multiple.py)
+[5. Smallest multiple](problems/smallest_multiple.py)
