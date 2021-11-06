@@ -18,3 +18,5 @@ Project Euler gives us a chance to prove our problem-solving skills.
 [6. Sum square difference](problems/sum_square_difference.py)
 
 [7. 10,001st prime](problems/10001st_prime.py)
+
+[8. Largest product in a series](problems/largest_product_in_a_series.py)
