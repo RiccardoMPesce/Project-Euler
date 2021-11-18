@@ -22,3 +22,5 @@ Project Euler gives us a chance to prove our problem-solving skills.
 [8. Largest product in a series](problems/largest_product_in_a_series.py)
 
 [9. Special Pythagorean triplet](problems/special_pythagorean_triplet.py)
+
+[10. Summation of primes](problems/sum_primes.py)
