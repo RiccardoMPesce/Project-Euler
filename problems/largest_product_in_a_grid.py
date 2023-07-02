@@ -1,3 +1,6 @@
+from functools import reduce
+from operator import mul
+
 GRID = """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
@@ -29,21 +32,97 @@ def preprocess_grid(grid, size, type="grid"):
     else:
         return vec
 
-def find_largest_product(grid, rows, columns, n):
-    max_p = 0
 
-    for i, n in enumerate(grid):
-        products = []
+def move_left_by_k(i, a, k):
+    result = [a[p] for p in range(i - k, i + 1) if p >= 0]
+    if len(result) == k:
+        return result
+    else:
+        return [0]
+    
+def move_right_by_k(i, a, k):
+    result = [a[p] for p in range(i, i + k + 1) if p < len(a)]
+    if len(result) == k:
+        return result
+    else:
+        return [0]
+    
+def move_up_by_k(i, a, k):
+    matrix_dim = int(len(a) ** 0.5)
+    indices = [i - j * matrix_dim for j in range(k)]
+    result = [a[p] for p in indices if p >= 0]
+    if len(result) == k:
+        return result
+    else:
+        return [0]
 
-        # TODO
+def move_down_by_k(i, a, k):
+    matrix_dim = int(len(a) ** 0.5)
+    indices = [i + j * matrix_dim for j in range(k)]
+    result = [a[p] for p in indices if p < len(a)]
+    if len(result) == k:
+        return result
+    else:
+        return [0]
 
-        temp_max_p = max(products)
-        if temp_max_p > max_p:
-            max_p = temp_max_p
+def move_up_left_by_k(i, a, k):
+    matrix_dim = int(len(a) ** 0.5)
+    indices = [i - j * matrix_dim - j for j in range(k)]
+    result = [a[p] for p in indices if p >= 0]
+    if len(result) == k:
+        return result
+    else:
+        return [0]
+
+def move_up_right_by_k(i, a, k):
+    matrix_dim = int(len(a) ** 0.5)
+    indices = [i] + [i - j * matrix_dim + j for j in range(1, k)]
+    result = [a[p] for p in indices if p >= 0]
+    if len(result) == k:
+        return result
+    else:
+        return [0]
+
+def move_down_left_by_k(i, a, k):
+    matrix_dim = int(len(a) ** 0.5)
+    indices = [i + j * matrix_dim - j for j in range(k)]
+    result = [a[p] for p in indices if p < len(a)]
+    if len(result) == k:
+        return result
+    else:
+        return [0]
+
+def move_down_right_by_k(i, a, k):
+    matrix_dim = int(len(a) ** 0.5)
+    indices = [i + j * matrix_dim + j for j in range(k)]
+    result = [a[p] for p in indices if p < len(a)]
+    if len(result) == k:
+        return result
+    else:
+        return [0]
+
+def find_largest_product(grid, k):
+    max_product = 0
+
+    for i, _ in enumerate(grid):
+        max_product = max(
+            max_product,
+            reduce(mul, move_left_by_k(i, grid, k), 1),
+            reduce(mul, move_right_by_k(i, grid, k), 1),
+            reduce(mul, move_up_by_k(i, grid, k), 1),
+            reduce(mul, move_down_by_k(i, grid, k), 1),
+            reduce(mul, move_up_left_by_k(i, grid, k), 1),
+            reduce(mul, move_up_right_by_k(i, grid, k), 1),
+            reduce(mul, move_down_left_by_k(i, grid, k), 1),
+            reduce(mul, move_down_right_by_k(i, grid, k), 1)
+        )
+        print(max_product)
+    return max_product
 
 def main():
     grid = preprocess_grid(GRID, 20, "vec")
-    print(find_largest_product(grid, 20, 20, 4))
+    print(len(grid))
+    print(find_largest_product(grid, 4))
 
 if __name__ == "__main__":
     main()
